@@ -1,0 +1,14 @@
+backports.functools-lru-cache==1.4
+cycler==0.10.0
+matplotlib==2.1.1
+numpy==1.13.3
+pandas==0.21.1
+powerline-status==2.5.dev9999+git.d53695a3fd244d6ceb9607c7407b098eba32e5e7
+pyparsing==2.2.0
+python-dateutil==2.6.1
+pytz==2017.3
+requests==2.11.1
+six==1.11.0
+subprocess32==3.2.7
+urllib3==1.17
+vboxapi==1.0
