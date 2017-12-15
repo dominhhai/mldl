@@ -15,12 +15,14 @@ plt.plot(df.values[:,0], df.values[:,1], color='g')
 plt.xlabel('x'); plt.ylabel('y'); plt.show()
 
 # extract X, Y
-X = df.values[:,0]
+X = df.values[:,0].reshape((-1,1))
 Y = df.values[:,2]
+# add X_0(1,..,1) to X
+X = np.concatenate((np.ones((X.shape[0],1)), X), axis=1)
 # print X.shape, Y.shape
 
 # parameters learning
-reg = linear_model.LinearRegression()
+reg = linear_model.LinearRegression(fit_intercept=False)
 reg.fit(X, Y)
 W_hat = reg.coef_
 print 'W_hat :=',W_hat
