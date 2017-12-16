@@ -6,10 +6,11 @@ import matplotlib.pyplot as plt
 DATA_FILE_NAME = './dataset/1_sin2pi.csv'
 DEGREE = 3 # degree of polynomial of X
 ETA = .01 # learning rate
-EPSILON = 1e-6 #0.000006 gradient stop minimum condition
-MAX_STEP = 100000 # gradient loop step
+EPSILON = 1e-6 # gradient stop minimum condition
+LAMBDA = 1 # regulization hyperparameter
+MAX_STEP = 1000000 # gradient loop step
 GRAD_CHECK_EPSILON = 1e-10
-GRAD_CHECK_MAX = 1.5e-5
+GRAD_CHECK_MAX = 1e-4
 
 """
 calculate gradient of cost function
@@ -71,10 +72,15 @@ for i in range(MAX_STEP):
             print numerialGrad, grad, np.linalg.norm(numerialGrad - grad)
             print 'Gradient Calc Error!'
             break
+    # regulization
+    w = LAMBDA * (np.sum(W) - W[0])
+    grad += w
+    grad[0] -= w
     # update parameters
     W -= ETA * grad
     # Exit when gradient is small enought
     gradLen = np.linalg.norm(grad)
+    print i, W, gradLen
     if gradLen <= EPSILON:
         print gradLen
         break
