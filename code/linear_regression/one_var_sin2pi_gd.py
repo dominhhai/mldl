@@ -4,10 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 DATA_FILE_NAME = './dataset/1_sin2pi.csv'
-DEGREE = 3 # degree of polynomial of X
+DEGREE = 9 # degree of polynomial of X
 ETA = .01 # learning rate
 EPSILON = 1e-6 # gradient stop minimum condition
-LAMBDA = 1 # regulization hyperparameter
+LAMBDA = 0.01 # regulization hyperparameter
 MAX_STEP = 1000000 # gradient loop step
 GRAD_CHECK_EPSILON = 1e-10
 GRAD_CHECK_MAX = 1e-4
@@ -58,6 +58,7 @@ Y = df.values[:,2]
 _X = np.empty((X.shape[0], DEGREE+1))
 for i in range(DEGREE + 1):
     _X[:,i] = np.power(X,i)
+m = _X.shape[0]
 # print _X.shape, Y.shape
 
 # parameters learning
@@ -73,11 +74,11 @@ for i in range(MAX_STEP):
             print 'Gradient Calc Error!'
             break
     # regulization
-    w = LAMBDA * (np.sum(W) - W[0])
+    w = LAMBDA * W
+    w[0] = 0 # W_0 not update
     grad += w
-    grad[0] -= w
     # update parameters
-    W -= ETA * grad
+    W -= ETA * grad / m
     # Exit when gradient is small enought
     gradLen = np.linalg.norm(grad)
     print i, W, gradLen
