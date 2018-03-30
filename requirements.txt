@@ -24,6 +24,7 @@ jupyter==1.0.0
 jupyter-client==5.1.0
 jupyter-console==5.2.0
 jupyter-core==4.4.0
+kiwisolver==1.0.1
 Markdown==2.6.10
 MarkupSafe==1.0
 matplotlib==2.1.1
@@ -39,6 +40,7 @@ pathlib2==2.3.0
 pbr==3.1.1
 pexpect==4.3.1
 pickleshare==0.7.4
+Pillow==5.0.0
 prompt-toolkit==1.0.15
 protobuf==3.5.0.post1
 ptyprocess==0.5.2
@@ -46,12 +48,14 @@ Pygments==2.2.0
 pyparsing==2.2.0
 python-dateutil==2.6.1
 pytz==2017.3
+PyYAML==3.12
 pyzmq==16.0.3
 qtconsole==4.3.1
 requests==2.11.1
 scandir==1.6
 scikit-learn==0.19.1
 scipy==1.0.0
+Send2Trash==1.5.0
 simplegeneric==0.8.1
 singledispatch==3.4.0.3
 six==1.11.0
@@ -60,10 +64,13 @@ tensorflow==1.4.1
 tensorflow-tensorboard==0.4.0rc3
 terminado==0.8.1
 testpath==0.3.1
+torch==0.3.1
+torchvision==0.2.0
 tornado==4.5.2
 traitlets==4.3.2
 urllib3==1.17
-virtualenv==15.1.0
+virtualenv==15.2.0
 wcwidth==0.1.7
+webencodings==0.5.1
 Werkzeug==0.13
 widgetsnbextension==3.0.8
